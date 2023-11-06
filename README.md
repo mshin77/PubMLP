@@ -23,9 +23,9 @@ To set up the project environment and install the necessary dependencies, run th
 
 pip install -r libraries.txt
 
-## Document 
+## Documents 
 
-[Python-RStudio-qmd](https://mshin77.github.io/PubMLP/Python-RStudio-qmd)
-[Python-RStudio-Rmd](https://mshin77.github.io/PubMLP/Python-RStudio-Rmd)
-[Python-VScode-ipynb](https://mshin77.github.io/PubMLP/Python-VScode-ipynb)
-[Python-VScode-qmd](https://mshin77.github.io/PubMLP/Python-VScode-qmd)
+[Python in RStudio by qmd file](https://mshin77.github.io/PubMLP/Python-RStudio-qmd) \
+[Python in RStudio by Rmd file](https://mshin77.github.io/PubMLP/Python-RStudio-Rmd) \
+[Python in VScode by ipynb file](https://mshin77.github.io/PubMLP/Python-VScode-ipynb) \
+[Python in VScode by qmd flie](https://mshin77.github.io/PubMLP/Python-VScode-qmd)
