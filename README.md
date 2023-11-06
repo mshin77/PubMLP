@@ -25,4 +25,7 @@ pip install -r libraries.txt
 
 ## Document 
 
-https://mshin77.github.io/PubMLP/Python-VScode-qmd/
+[Python-RStudio-qmd](https://mshin77.github.io/PubMLP/Python-RStudio-qmd)
+[Python-RStudio-Rmd](https://mshin77.github.io/PubMLP/Python-RStudio-Rmd)
+[Python-VScode-ipynb](https://mshin77.github.io/PubMLP/Python-VScode-ipynb)
+[Python-VScode-qmd](https://mshin77.github.io/PubMLP/Python-VScode-qmd)
