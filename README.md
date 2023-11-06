@@ -15,7 +15,7 @@ tags:
 
 This model demonstrates a publication classifier for bibliometric data exported from the Web of Science. The `tabular data` includes text (e.g., abstracts), categorical, and numeric (e.g., publication year) features. The utilized functions include the BERT tokenizer for text preprocessing and an MLP (multilayer perceptron) for classifying whether the publication meets the researcher-designated inclusion criteria. 
 
-Data preprocessing includes tokenizing text features using `BERT's tokenizer` and encoding categorical features as dummy variables (yes for 1 and no for 0). As a neural network, MLP consists of multiple layers, including input, hidden, and output layers. MLP classifier was trained on 1,798 publications (80% for training, 10% for validation, and 10% for testing and evaluated its performance on validation and test datasets.
+Data preprocessing includes tokenizing text features using `BERT's tokenizer` and encoding categorical features as dummy variables (yes for 1 and no for 0). As a neural network, MLP consists of multiple layers, including input, hidden, and output layers. MLP classifier was trained using `Pytorch's torch library` on 1,798 publications (80% for training, 10% for validation, and 10% for testing and evaluated its performance on validation and test datasets.
 
 ## Installation
 
