@@ -13,8 +13,8 @@ tags:
 ---
 # PubMLP: Publication Classifier with BERT Tokenizer and Multilayer Perceptron
 
-https://huggingface.co/mshin/PubMLP
-https://github.com/mshin77/PubMLP
+[Hugging Face](https://huggingface.co/mshin/PubMLP) \
+[GitHub](https://github.com/mshin77/PubMLP)
 
 This model demonstrates a publication classifier for bibliometric data exported from the Web of Science. The `tabular data` includes text (e.g., abstracts), categorical, and numeric (e.g., publication year) features. The utilized functions include the BERT tokenizer for text preprocessing and an MLP (multilayer perceptron) for classifying whether the publication meets the researcher-designated inclusion criteria. 
 
