@@ -5,8 +5,10 @@ language:
 - en
 metrics:
 - accuracy
-library_name: transformers
-pipeline_tag: text-classification
+library_name:
+- transformers
+pipeline_tag:
+- text-classification
 tags:
 - BERT
 - PyTorch
