@@ -1,5 +1,6 @@
 ---
-license: mit
+license: 
+- mit
 language:
 - en
 metrics:
