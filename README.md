@@ -15,6 +15,7 @@ tags:
 ---
 
 **Pre-trained model and code for PubMLP at the following locations:**
+
 [Hugging Face](https://huggingface.co/mshin/PubMLP) \
 [GitHub](https://github.com/mshin77/PubMLP)
 
@@ -39,9 +40,9 @@ The project consists of several components that are executed sequentially for th
 To run the pipeline, follow these optional steps :
 
 1. **Clone** the repository:
-Open ![](https://code.visualstudio.com/assets/images/code-stable.png){height="20"} [VSCode](https://code.visualstudio.com/download), go to the "Source Control" tab, click "Clone Repository," and enter the repository URL.
+[VSCode](https://code.visualstudio.com/download), go to the "Source Control" tab, click "Clone Repository," and enter the repository URL.
 
-Open ![](https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png){height="25"} [RStudio](https://posit.co/downloads), go to "File" > "New Project" > "Version Control" > "Git" and enter the repository URL.
+[RStudio](https://posit.co/downloads), go to "File" > "New Project" > "Version Control" > "Git" and enter the repository URL.
 
 2. **Install** the required dependencies listed in the `requirements.txt` file:
 
