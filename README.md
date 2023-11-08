@@ -1,11 +1,4 @@
 ---
-<<<<<<< HEAD
-license: mit
-language: en
-metrics: accuracy
-library_name: transformers
-pipeline_tag: text-classification
-=======
 license: 
 - mit
 language:
@@ -16,7 +9,6 @@ library_name:
 - transformers
 pipeline_tag:
 - text-classification
->>>>>>> eead45889efb9d1442ac606f6e004da03a2e3d96
 tags:
 - BERT
 - PyTorch
@@ -81,7 +73,7 @@ To run the pipeline, follow these steps:
 
    This command installs the necessary Python dependencies listed in the `requirements.txt` file.
 
-3. Execute the main script (runs the pipeline and generate outputs):
+3. Execute the main script to generate outputs:
 
    - In a terminal or command prompt (Bash shell):
 
