@@ -22,7 +22,7 @@ Pre-trained model and code for PubMLP at the following locations:
 - [GitHub](https://github.com/mshin77/PubMLP)
 
 ## Introduction
-This projectC contains code for an automatic publication classifier for bibliometric data exported from the Web of Science (WOS). The tabular data includes text, categorical data, and numeric features. The utilized functions include the BERT (Bidirectional Encoder Representations from Transformers) tokenizer for text preprocessing and an MLP (multilayer perceptron) for classifying whether the publication meets the researcher-designated inclusion criteria.
+This project contains code for an automatic publication classifier for bibliometric data exported from the Web of Science (WOS). The tabular data includes text, categorical data, and numeric features. The utilized functions include the BERT (Bidirectional Encoder Representations from Transformers) tokenizer for text preprocessing and an MLP (multilayer perceptron) for classifying whether the publication meets the researcher-designated inclusion criteria.
 
 Data preprocessing involves tokenizing text features using `BERT's tokenizer` and encoding categorical features as dummy variables (1 for yes and 0 for no). As a neural network, the MLP consists of multiple layers, including input, hidden, and output layers. The MLP classifier was trained using `PyTorch's torch library` on 1,798 publications (80% for training, 10% for validation, and 10% for testing) and evaluated for its performance on the validation and test datasets.
 
