@@ -23,12 +23,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-## 'PubMLP: Automatic Publication Classifier'
- 
+## PubMLP: Automatic Publication Classifier
 Pre-trained model and code for PubMLP at the following locations:
 
-![](https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg){height="30"} https://huggingface.co/mshin/PubMLP 
-![](https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png){height="30"} https://github.com/mshin77/PubMLP
+Hugging Face https://huggingface.co/mshin/PubMLP \
+GitHub https://github.com/mshin77/PubMLP
 
 ## Introduction
 This project contains code for an automatic publication classifier for bibliometric data exported from the [Web of Science (WOS)]{style="background-color: #C7CEEA"}. The tabular data includes text, categorical data, and numeric features. The utilized functions include the BERT (Bidirectional Encoder Representations from Transformers) tokenizer for text preprocessing and an MLP (multilayer perceptron) for classifying whether the publication meets the researcher-designated inclusion criteria.

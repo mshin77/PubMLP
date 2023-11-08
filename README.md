@@ -1,14 +1,11 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## ‘PubMLP: Automatic Publication Classifier’
+## PubMLP: Automatic Publication Classifier
 
 Pre-trained model and code for PubMLP at the following locations:
 
-<img
-src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg"
-height="30" /> <https://huggingface.co/mshin/PubMLP> <img
-src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
-height="30" /> <https://github.com/mshin77/PubMLP>
+Hugging Face <https://huggingface.co/mshin/PubMLP>  
+GitHub <https://github.com/mshin77/PubMLP>
 
 ## Introduction
 
