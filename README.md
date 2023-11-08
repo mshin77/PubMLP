@@ -40,9 +40,8 @@ The project consists of several components that are executed sequentially for th
 To run the pipeline, follow these optional steps :
 
 1. **Clone** the repository:
-[VSCode](https://code.visualstudio.com/download), go to the "Source Control" tab, click "Clone Repository," and enter the repository URL.
-
-[RStudio](https://posit.co/downloads), go to "File" > "New Project" > "Version Control" > "Git" and enter the repository URL.
+- [VSCode](https://code.visualstudio.com/download), go to the "Source Control" tab, click "Clone Repository," and enter the repository URL.
+- [RStudio](https://posit.co/downloads), go to "File" > "New Project" > "Version Control" > "Git" and enter the repository URL.
 
 2. **Install** the required dependencies listed in the `requirements.txt` file:
 
