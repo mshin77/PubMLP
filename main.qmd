@@ -1,0 +1,105 @@
+---
+title: 'PubMLP: Automatic Publication Classifier'
+author: 'Mikyung Shin'
+date: '2023-11-06'
+format: html
+jupyter: python3
+---
+
+Pre-trained model and code for PubMLP at the following locations:
+
+- [Hugging Face](https://huggingface.co/mshin/PubMLP) \
+- [GitHub](https://github.com/mshin77/PubMLP)
+
+```{python}
+import pandas as pd
+import spacy
+import matplotlib.pyplot as plt
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data.sampler import RandomSampler, SequentialSampler
+from transformers import BertTokenizer
+from sources.load_split import load_split_data
+from sources.preprocess import preprocess_dataset, get_dataloader
+from sources.train import PubMLP, train_model
+from sources.plot import plot_results
+import warnings
+```
+
+::: {.panel-tabset}
+
+## Load
+
+```{python}
+warnings.filterwarnings('ignore',category=FutureWarning)
+
+# Load data
+data_file_path = './files/data.csv'
+ner_model = spacy.load('en_core_web_sm')
+
+train_df, valid_df, test_df = load_split_data(data_file_path, ner_model)
+
+print(f"Training data number: {len(train_df)}")
+print(f"Validation data number: {len(valid_df)}")
+print(f"Testing data number: {len(test_df)}")
+
+# Save data to CSV files
+train_df.to_excel('./files/train_data.xlsx', index=False)
+valid_df.to_excel('./files/valid_data.xlsx', index=False)
+test_df.to_excel('./files/test_data.xlsx', index=False)
+```
+
+## Preprocess 
+
+```{python}
+# Set up settings for reproducible results
+torch.backends.cudnn.deterministic = True
+random_seed = 2023
+torch.manual_seed(random_seed)
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+# Load the BERT tokenizer
+print('Loading BERT tokenizer...')
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True)
+
+train_dataset = preprocess_dataset(train_df, tokenizer, device)
+train_dataloader = get_dataloader(train_dataset, RandomSampler, batch_size=32)
+
+valid_dataset = preprocess_dataset(valid_df, tokenizer, device)
+valid_dataloader = get_dataloader(valid_dataset, SequentialSampler, batch_size=32)
+
+test_dataset = preprocess_dataset(test_df, tokenizer, device)
+test_dataloader = get_dataloader(test_dataset, SequentialSampler, batch_size=32)
+
+print(train_dataset[0])
+```
+
+## Train PubMLP
+
+```{python}
+# Define hyperparameters
+input_size = 1029
+hidden_size = 32  
+num_classes = 2
+
+model = PubMLP(input_size, hidden_size, num_classes).to(device)
+
+# Define loss function and optimizer
+criterion = nn.CrossEntropyLoss()  
+optimizer = optim.Adam(model.parameters(), lr=0.001) 
+epochs = 4
+
+# Train the model
+training_losses, validation_losses, test_losses, training_accuracies, validation_accuracies, test_accuracies = train_model(
+    model, train_dataset, valid_dataset, test_dataset,
+    train_dataloader, valid_dataloader, test_dataloader,
+    criterion, optimizer, device, epochs)
+```
+
+## Plot 
+```{python}
+plot_results(epochs, training_losses, validation_losses, test_losses, training_accuracies, validation_accuracies, test_accuracies)
+```
+
+:::
