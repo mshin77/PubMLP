@@ -45,26 +45,20 @@ The project consists of several components that are executed sequentially for th
 
 To run the pipeline, follow these steps:
 
-1. Clone the repository:
+1. **Clone** the repository:
 
-   - In ![VSCode](https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white): Open VSCode, go to the "Source Control" tab, click "Clone Repository," and enter the repository URL.
+![VSCode](https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white): Open VSCode, go to the "Source Control" tab, click "Clone Repository," and enter the repository URL.
 
-   - In ![RStudio](https://img.shields.io/badge/RStudio-75AADB?style=for-the-badge&logo=rstudio&logoColor=white): Open RStudio, go to "File" > "New Project" > "Version Control" > "Git" and enter the repository URL.
+![RStudio](https://img.shields.io/badge/RStudio-75AADB?style=for-the-badge&logo=rstudio&logoColor=white): Open RStudio, go to "File" > "New Project" > "Version Control" > "Git" and enter the repository URL.
 
-2. Install the required dependencies:
+2. **Install** the required dependencies listed in the `requirements.txt` file.:
 
-   - In a terminal or command prompt (Bash shell):
+```bash
+pip install -r requirements.txt
+```
 
-     ```bash
-     pip install -r requirements.txt
-     ```
+3. **Execute** the main script to generate outputs:
 
-   This command installs the necessary Python dependencies listed in the `requirements.txt` file.
-
-3. Execute the main script to generate outputs:
-
-   - In a terminal or command prompt (Bash shell):
-
-     ```bash
-     Quarto preview main.qmd
-     ```
+```bash
+Quarto preview main.qmd
+ ```
