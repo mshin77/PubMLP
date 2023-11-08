@@ -1,19 +1,19 @@
 ---
-license: 
-- mit
+license: mit
 language:
 - en
 metrics:
 - accuracy
-library_name:
-- transformers
-pipeline_tag:
-- text-classification
+library_name: transformers
+pipeline_tag: text-classification
 tags:
 - BERT
 - PyTorch
-- education
+- Bibliometrics
+- Single-Case Design
+- Technology
 ---
+
 # PubMLP: Automatic Publication Classifier
 
 Pre-trained model and code for PubMLP at the following locations:
