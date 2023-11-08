@@ -18,7 +18,7 @@ tags:
 
 Pre-trained model and code for PubMLP at the following locations:
 
-- [Hugging Face](https://huggingface.co/mshin/PubMLP) \
+- [Hugging Face](https://huggingface.co/mshin/PubMLP) 
 - [GitHub](https://github.com/mshin77/PubMLP)
 
 ## Introduction
@@ -29,18 +29,6 @@ Data preprocessing involves tokenizing text features using `BERT's tokenizer` an
 ## Dataset
 The dataset includes a subset of WOS bibliometric data. The data are based on publications between 1970 and 2023 and are focused on single-case research that utilizes technology.
 
-## Project Structure
-
-```
-PubMLP/
-├── data.csv
-├── main.py
-├── load.py
-├── preprocess.py
-├── train.py
-├── plot.py
-└── README.md
-```
 ## Pipeline
 
 The project consists of several components that are executed sequentially for the classification of publications:
