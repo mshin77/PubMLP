@@ -4,8 +4,8 @@
 
 Pre-trained model and code for PubMLP at the following locations:
 
-Hugging Face <https://huggingface.co/mshin/PubMLP>  
-GitHub <https://github.com/mshin77/PubMLP>
+[Hugging Face](https://huggingface.co/mshin/PubMLP)  
+[GitHub](https://github.com/mshin77/PubMLP)
 
 ## Introduction
 
