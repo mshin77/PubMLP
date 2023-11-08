@@ -14,7 +14,7 @@ tags:
 - PyTorch
 - education
 ---
-# PubMLP: Automatic Publication Classifier Using MLP
+# PubMLP: Automatic Publication Classifier
 
 Pre-trained model and code for PubMLP at the following locations:
 
