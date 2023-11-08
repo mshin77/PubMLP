@@ -47,9 +47,9 @@ To run the pipeline, follow these steps:
 
 1. **Clone** the repository:
 
-![VSCode](https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white): Open VSCode, go to the "Source Control" tab, click "Clone Repository," and enter the repository URL.
+[VSCode](https://code.visualstudio.com/download): Open VSCode, go to the "Source Control" tab, click "Clone Repository," and enter the repository URL.
 
-![RStudio](https://img.shields.io/badge/RStudio-75AADB?style=for-the-badge&logo=rstudio&logoColor=white): Open RStudio, go to "File" > "New Project" > "Version Control" > "Git" and enter the repository URL.
+[RStudio](https://posit.co/downloads): Open RStudio, go to "File" > "New Project" > "Version Control" > "Git" and enter the repository URL.
 
 2. **Install** the required dependencies listed in the `requirements.txt` file.:
 
