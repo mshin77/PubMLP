@@ -1,9 +1,22 @@
 ---
+<<<<<<< HEAD
 license: mit
 language: en
 metrics: accuracy
 library_name: transformers
 pipeline_tag: text-classification
+=======
+license: 
+- mit
+language:
+- en
+metrics:
+- accuracy
+library_name:
+- transformers
+pipeline_tag:
+- text-classification
+>>>>>>> eead45889efb9d1442ac606f6e004da03a2e3d96
 tags:
 - BERT
 - PyTorch
