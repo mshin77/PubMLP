@@ -20,10 +20,10 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data.sampler import RandomSampler, SequentialSampler
-from transformers import BertTokenizer
+from transformers import BertTokenizer, PreTrainedModel, PretrainedConfig
 from sources.prepare import extract_country_entities, split_data
 from sources.preprocess import preprocess_dataset, get_dataloader
-from sources.train import PubMLP, train_model
+from sources.train import PubMLPConfig, PubMLP, train_model
 from sources.plot import plot_results
 import warnings
 ```
@@ -106,12 +106,9 @@ print(train_dataset[0])
 ## Train PubMLP
 
 ```{python}
-# Define hyperparameters
-input_size = 1029
-hidden_size = 32  
-num_classes = 2
-
-model = PubMLP(input_size, hidden_size, num_classes).to(device)
+# Load the PubMLP model
+config = PubMLPConfig()
+model = PubMLP(config).to(device)
 
 # Define loss function and optimizer
 criterion = nn.CrossEntropyLoss()  

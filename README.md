@@ -4,14 +4,13 @@ language:
 - en
 metrics:
 - accuracy
-library_name: transformers
-pipeline_tag: text-classification
 tags:
 - BERT
 - PyTorch
 - Bibliometrics
 - Single-case design
 - Technology
+- Custom MLP
 ---
 
 **Pre-trained model and code for PubMLP at the following locations:**
@@ -31,7 +30,7 @@ The dataset includes a subset of WOS bibliometric data. The data are based on pu
 
 The project consists of several components that are executed sequentially for the classification of publications:
 
-1. **Load Data (main.py)**: Load and preprocess the initial data from data.csv.
+1. **Prepare Data (prepare.py)**: Extract country entities and split data.
 2. **Preprocess Data (preprocess.py)**: Tokenize text, encode categorical features, and prepare data for training.
 3. **Train Model (train.py)**: Train the MLP model using the preprocessed data.
 4. **Plot Results (plot.py)**: Visualize training, validation, and test results.

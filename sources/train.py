@@ -1,41 +1,50 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from transformers import PreTrainedModel, PretrainedConfig
 
 # Define the multilayer perceptron model 
-class PubMLP(nn.Module):
-    
-    def __init__(self, input_size, hidden_size, num_classes, dropout_prob=0.5):
-            """
-            Initializes a PubMLP model instance.
+class PubMLPConfig(PretrainedConfig):
+    """
+    Configuration class for PubMLP.
 
-            Args:
-                input_size (int): The size of the input layer.
-                hidden_size (int): The size of the hidden layer.
-                num_classes (int): The number of output classes.
-                dropout_prob (float, optional): The probability of dropout. Defaults to 0.5.
-            """
-            super(PubMLP, self).__init__()
-            self.fc1 = nn.Linear(input_size, hidden_size)
-            self.relu = nn.ReLU()
-            self.dropout = nn.Dropout(p=dropout_prob)  
-            self.fc2 = nn.Linear(hidden_size, num_classes)
+    Args:
+        input_size (int, optional): The size of the input features. Defaults to 1029.
+        hidden_size (int, optional): The size of the hidden layer. Defaults to 32.
+        num_classes (int, optional): The number of classes in the output layer. Defaults to 2.
+        dropout_prob (float, optional): The dropout probability. Defaults to 0.5.
+        **kwargs: Additional keyword arguments passed to the superclass.
+    """
+    def __init__(self, input_size=1029, hidden_size=32, num_classes=2, dropout_prob=0.5, **kwargs):
+        super().__init__(**kwargs)
+        self.model_type = 'pubmlp' 
+        self.input_size = input_size
+        self.hidden_size = hidden_size
+        self.num_classes = num_classes
+        self.dropout_prob = dropout_prob
+
+class PubMLP(PreTrainedModel):
+    """
+    A custom multilayer perceptron (MLP) for classification, compatible with the Hugging Face ecosystem.
+    
+    Args:
+        config (PubMLPConfig): The configuration object specifying the model architecture and hyperparameters.
+    """
+    config_class = PubMLPConfig
+
+    def __init__(self, config):
+        super(PubMLP, self).__init__(config)
+        self.fc1 = nn.Linear(config.input_size, config.hidden_size)
+        self.relu = nn.ReLU()
+        self.dropout = nn.Dropout(p=config.dropout_prob)
+        self.fc2 = nn.Linear(config.hidden_size, config.num_classes)
 
     def forward(self, x):
-            """
-            Forward pass of the model.
-
-            Args:
-                x (torch.Tensor): Input tensor.
-
-            Returns:
-                torch.Tensor: Output tensor.
-            """
-            x = self.fc1(x)
-            x = self.relu(x)
-            x = self.dropout(x)  
-            x = self.fc2(x)
-            return x
+        x = self.fc1(x)
+        x = self.relu(x)
+        x = self.dropout(x)
+        x = self.fc2(x)
+        return x
 
 def train_model(
     model, 
@@ -137,4 +146,8 @@ def train_model(
         test_accuracies.append(test_accuracy)
         
     return training_losses, validation_losses, test_losses, training_accuracies, validation_accuracies, test_accuracies   
+
+
+
+
 

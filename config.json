@@ -1,0 +1,7 @@
+{
+  "model_type": "pubmlp",
+  "input_size": 1029,
+  "hidden_size": 32,
+  "num_classes": 2,
+  "dropout_prob": 0.5
+}
