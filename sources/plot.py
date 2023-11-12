@@ -1,7 +1,20 @@
 import matplotlib.pyplot as plt
 
+import matplotlib.pyplot as plt
+
 def plot_results(epochs, training_losses, validation_losses, test_losses, training_accuracies, validation_accuracies, test_accuracies):
-    
+    """
+    Plots the training, validation, and test losses and accuracies over the specified number of epochs.
+
+    Args:
+    epochs (int): The number of epochs.
+    training_losses (list): The training losses.
+    validation_losses (list): The validation losses.
+    test_losses (list): The test losses.
+    training_accuracies (list): The training accuracies.
+    validation_accuracies (list): The validation accuracies.
+    test_accuracies (list): The test accuracies.
+    """
     plt.figure(figsize=(8, 4))
 
     plt.subplot(1, 2, 1)

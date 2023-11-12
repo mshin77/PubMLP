@@ -5,6 +5,19 @@ from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 
 # Preprocess text, categorical, and numeric Data
 def preprocess_dataset(data, tokenizer, device):
+    """
+    Preprocesses the input dataset by tokenizing the text columns, converting categorical and numerical columns to tensors,
+    and concatenating all the input data tensors. The label column is also converted to a tensor.
+
+    Args:
+        data (pandas.DataFrame): The input dataset.
+        tokenizer (transformers.PreTrainedTokenizer): The tokenizer to use for tokenizing the text columns.
+        device (str): The device to use for the tensors.
+
+    Returns:
+        torch.utils.data.TensorDataset: The preprocessed dataset as a TensorDataset object.
+    """
+def preprocess_dataset(data, tokenizer, device):
     
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     text_cols = data[['AF', 'TI', 'AB', 'DE', 'ID', 'SO', 'CR', 'Country']]
@@ -54,7 +67,20 @@ def preprocess_dataset(data, tokenizer, device):
     return TensorDataset(combined_tensors, label_tensor)  
 
 # Create a DataLoader
-def get_dataloader(dataset, sampler, batch_size):
+from torch.utils.data import Dataset, Sampler, DataLoader
+
+def get_dataloader(dataset: Dataset, sampler: Sampler, batch_size: int) -> DataLoader:
+    """
+    Returns a DataLoader object that batches data from the given dataset using the given sampler.
+
+    Args:
+        dataset (Dataset): The dataset to batch.
+        sampler (Sampler): The sampler to use for sampling elements from the dataset.
+        batch_size (int): The size of each batch.
+
+    Returns:
+        DataLoader: The DataLoader object that batches data from the given dataset using the given sampler.
+    """
     data_sampler = sampler(dataset)
     dataloader = DataLoader(dataset, sampler=data_sampler, batch_size=batch_size)
     return dataloader

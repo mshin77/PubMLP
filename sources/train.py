@@ -4,20 +4,38 @@ import torch.optim as optim
 
 # Define the multilayer perceptron model 
 class PubMLP(nn.Module):
-        
+    
     def __init__(self, input_size, hidden_size, num_classes, dropout_prob=0.5):
-        super(PubMLP, self).__init__()
-        self.fc1 = nn.Linear(input_size, hidden_size)
-        self.relu = nn.ReLU()
-        self.dropout = nn.Dropout(p=dropout_prob)  
-        self.fc2 = nn.Linear(hidden_size, num_classes)
+            """
+            Initializes a PubMLP model instance.
+
+            Args:
+                input_size (int): The size of the input layer.
+                hidden_size (int): The size of the hidden layer.
+                num_classes (int): The number of output classes.
+                dropout_prob (float, optional): The probability of dropout. Defaults to 0.5.
+            """
+            super(PubMLP, self).__init__()
+            self.fc1 = nn.Linear(input_size, hidden_size)
+            self.relu = nn.ReLU()
+            self.dropout = nn.Dropout(p=dropout_prob)  
+            self.fc2 = nn.Linear(hidden_size, num_classes)
 
     def forward(self, x):
-        x = self.fc1(x)
-        x = self.relu(x)
-        x = self.dropout(x)  
-        x = self.fc2(x)
-        return x
+            """
+            Forward pass of the model.
+
+            Args:
+                x (torch.Tensor): Input tensor.
+
+            Returns:
+                torch.Tensor: Output tensor.
+            """
+            x = self.fc1(x)
+            x = self.relu(x)
+            x = self.dropout(x)  
+            x = self.fc2(x)
+            return x
 
 def train_model(
     model, 
@@ -32,6 +50,7 @@ def train_model(
     device=None, 
     epochs=5
 ):
+
     if device is None:
         device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -118,3 +137,4 @@ def train_model(
         test_accuracies.append(test_accuracy)
         
     return training_losses, validation_losses, test_losses, training_accuracies, validation_accuracies, test_accuracies   
+

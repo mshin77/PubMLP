@@ -1,6 +1,6 @@
 ---
 license: mit
-language:
+language: 
 - en
 metrics:
 - accuracy
@@ -16,8 +16,8 @@ tags:
 
 **Pre-trained model and code for PubMLP at the following locations:**
 
-[Hugging Face](https://huggingface.co/mshin/PubMLP) \
-[GitHub](https://github.com/mshin77/PubMLP)
+[<img src="https://huggingface.co/front/assets/huggingface_logo.svg" width="15" height="15"> Hugging Face](https://huggingface.co/mshin/PubMLP) \
+[<img src="https://img.icons8.com/material-outlined/24/000000/github.png"/>](https://github.com/mshin77/PubMLP)
 
 ## PubMLP: Automatic Publication Classifier
 This project contains code for an automatic publication classifier for bibliometric data exported from the `Web of Science (WOS). The tabular data includes text, categorical data, and numeric features. The utilized functions include the BERT (Bidirectional Encoder Representations from Transformers) tokenizer for text preprocessing and an MLP (multilayer perceptron) for classifying whether the publication meets the researcher-designated inclusion criteria.
@@ -46,7 +46,7 @@ To run the pipeline, follow these optional steps :
 2. **Install** the required dependencies listed in the `requirements.txt` file:
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt 
 ```
 
 3. **Execute** the main script to generate outputs:
