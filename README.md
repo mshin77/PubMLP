@@ -1,6 +1,6 @@
 ---
 license: mit
-language: 
+language:
 - en
 metrics:
 - accuracy
