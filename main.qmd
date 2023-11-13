@@ -91,13 +91,22 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print('Loading BERT tokenizer...')
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True)
 
-train_dataset = preprocess_dataset(train_df, tokenizer, device)
+# Define column lists
+col_lists = {
+    'text_cols': ['AF', 'TI', 'AB', 'DE', 'ID', 'SO', 'CR', 'Country'],
+    'categorical_cols': ['single_case', 'technology_use'],
+    'numerical_cols': ['PY'],
+    'label_col': ['included']
+}
+
+# Preprocess and create dataloaders
+train_dataset = preprocess_dataset(train_df, tokenizer, device, col_lists)
 train_dataloader = get_dataloader(train_dataset, RandomSampler, batch_size=32)
 
-valid_dataset = preprocess_dataset(valid_df, tokenizer, device)
+valid_dataset = preprocess_dataset(valid_df, tokenizer, device, col_lists)
 valid_dataloader = get_dataloader(valid_dataset, SequentialSampler, batch_size=32)
 
-test_dataset = preprocess_dataset(test_df, tokenizer, device)
+test_dataset = preprocess_dataset(test_df, tokenizer, device, col_lists)
 test_dataloader = get_dataloader(test_dataset, SequentialSampler, batch_size=32)
 
 print(train_dataset[0])
@@ -113,7 +122,7 @@ model = PubMLP(config).to(device)
 # Define loss function and optimizer
 criterion = nn.CrossEntropyLoss()  
 optimizer = optim.Adam(model.parameters(), lr=0.001) 
-epochs = 4
+epochs = 3
 
 # Train the model
 training_losses, validation_losses, test_losses, training_accuracies, validation_accuracies, test_accuracies = train_model(
