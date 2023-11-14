@@ -1,7 +1,7 @@
 ---
 title: 'PubMLP: Automatic Publication Classifier'
 author: 'Mikyung Shin'
-date: '2023-11-06'
+date: '2023-11-13'
 format: html
 jupyter: python3
 ---
@@ -23,14 +23,14 @@ from torch.utils.data.sampler import RandomSampler, SequentialSampler
 from transformers import BertTokenizer, PreTrainedModel, PretrainedConfig
 from sources.prepare import extract_country_entities, split_data
 from sources.preprocess import preprocess_dataset, get_dataloader
-from sources.train import PubMLPConfig, PubMLP, train_model
+from sources.model import PubMLPConfig, PubMLP, train_model, test_model
 from sources.plot import plot_results
 import warnings
 ```
 
 ::: {.panel-tabset}
 
-## Load
+## Load Data
 
 ```{python}
 warnings.filterwarnings('ignore',category=FutureWarning)
@@ -119,21 +119,26 @@ print(train_dataset[0])
 config = PubMLPConfig()
 model = PubMLP(config).to(device)
 
-# Define loss function and optimizer
 criterion = nn.CrossEntropyLoss()  
 optimizer = optim.Adam(model.parameters(), lr=0.001) 
-epochs = 3
+epochs = 5
 
-# Train the model
-training_losses, validation_losses, test_losses, training_accuracies, validation_accuracies, test_accuracies = train_model(
-    model, train_dataset, valid_dataset, test_dataset,
-    train_dataloader, valid_dataloader, test_dataloader,
-    criterion, optimizer, device, epochs)
+# Train the model and perform validation
+training_losses, validation_losses, training_accuracies, validation_accuracies, best_val_loss, best_model_state = train_model(
+    model, train_dataloader, valid_dataloader, criterion, optimizer, device, epochs)
+
+torch.save(best_model_state, 'best_pubmlp_model.pth')
+
+model.load_state_dict(torch.load('best_pubmlp_model.pth'))
+
+# Test PubMLP
+test_loss, test_accuracy = test_model(model, test_dataloader, criterion, device)
 ```
 
-## Plot 
+## Plot Results
+
 ```{python}
-plot_results(epochs, training_losses, validation_losses, test_losses, training_accuracies, validation_accuracies, test_accuracies)
+plot_results(training_losses, validation_losses, test_loss, training_accuracies, validation_accuracies, test_accuracy, best_val_loss)
 ```
 
 :::
